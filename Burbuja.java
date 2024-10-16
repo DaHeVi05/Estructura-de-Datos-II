@@ -1,27 +1,27 @@
+
 public class Burbuja {
 
-    // Método burbuja
-    public void burbuja(int[] arreglo, int n) {
-        System.out.println("--- METODO BURBUJA ---");
+    /*función burbuja (arreglo, n)
+        para i desde 0 hasta n-1
+            para j desde 0 hasta n-1
+            si arreglo[j] > arreglo[j+1] entonces
+    intercambiar arreglo[j] y arreglo[j+1]*/
+
+    public static void burbuja(int[] arreglo) {
+        int n = arreglo.length;
         for (int i = 0; i < n - 1; i++) {
-            boolean ordenado = true; // Metodo Burbuja mejorada
-            for (int j = 0; j < n - 1; j++) {
+            for (int j = 0; j < n - i - 1; j++) {
                 if (arreglo[j] > arreglo[j + 1]) {
                     int temp = arreglo[j];
                     arreglo[j] = arreglo[j + 1];
                     arreglo[j + 1] = temp;
-                    ordenado = false;
+                    printArray(arreglo);
                 }
             }
-            //el arreglo después de cada iteración
-            imprimirArreglo(arreglo);
-
-            if (ordenado) break;
         }
     }
 
-    // Método para imprimir el arreglo
-    public void imprimirArreglo(int[] arreglo) {
+    public static void printArray(int[] arreglo) {
         for (int num : arreglo) {
             System.out.print(num + " ");
         }
@@ -29,12 +29,12 @@ public class Burbuja {
     }
 
     public static void main(String[] args) {
-        // Crear un arreglo de tamaño 7
-        int[] arreglo = {5, 1, 6, 2, 3, 7, 4, 0};
-        int n = arreglo.length;
+        int[] arreglo = {1, 5, 8, 6, 2};  
+        System.out.println("Arreglo original:");
+        printArray(arreglo);
 
-        // Llamar al método burbuja desde el método main
-        Burbuja obj = new Burbuja();
-        obj.burbuja(arreglo, n);
+        burbuja(arreglo);
+        System.out.println("Arreglo ordenado:");
+        printArray(arreglo);
     }
 }
