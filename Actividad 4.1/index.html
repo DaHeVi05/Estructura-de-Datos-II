@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda de Contactos Web</title>
-    <link rel="stylesheet" href="sytles.css">
+  <meta charset="UTF-8">
+  <title>Formulario con Pestañas</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h2>Agenda de Contactos Interactiva</h2>
-        <input type="text" id="search" placeholder="Buscar por nombre o correo" onkeyup="filterContacts()">
-        <input type="text" id="name" placeholder="Nombre completo">
-        <input type="text" id="phone" placeholder="Teléfono">
-        <input type="email" id="email" placeholder="Correo electrónico">
-        <button onclick="addContact()">Agregar Contacto</button>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Teléfono</th>
-                    <th>Correo</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody id="contact-list"></tbody>
-        </table>
+
+  <div class="panel">
+    <div class="tabs">
+      <div class="tab active" data-index="0">Formulario</div>
+      <div class="tab" data-index="1">Datos</div>
     </div>
-    <script src="sricpts.js"></script>
+
+    <div class="tab-content active">
+      <label>Nombre:</label>
+      <input id="nombre" type="text" placeholder="Escribe tu nombre">
+      <label>Correo:</label>
+      <input id="correo" type="text" placeholder="Escribe tu correo">
+      <button onclick="enviarFormulario()">Enviar</button>
+    </div>
+
+    <div class="tab-content">
+      <p>Este es el contenido de la pestaña de datos.</p>
+      <button onclick="actualizarDatos()">Actualizar</button>
+    </div>
+  </div>
+
+  <script src="scripts.js" defer></script>
 </body>
 </html>
